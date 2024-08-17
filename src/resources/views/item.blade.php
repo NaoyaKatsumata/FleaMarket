@@ -1,6 +1,9 @@
 @extends('header')
 
 @section('content')
+    @php
+        $userId=Auth::user()->id;
+    @endphp
     <div class="flex w-[80%] mx-auto mt-[5%]">
         <div class="w-1/2">
             <div class="w-[70%] mx-auto">
@@ -25,6 +28,7 @@
                 <form action="/purchase" method="post">
                     @csrf
                     <input type="hidden" name="itemId" value="{{$item->Id}}">
+                    <input type="hidden" name="userId" value="{{$userId}}">
                     <input type="submit" class="w-full mt-[20px] py-[5px] bg-red-500 text-white text-center" name="" value="購入する">
                 </form>
                 <h1 class="mt-[50px] text-2xl font-bold">商品説明</h1>
