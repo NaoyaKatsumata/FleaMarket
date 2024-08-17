@@ -26,11 +26,28 @@
             <input type="search" name="search" class="w-full" placeholder="何をお探しですか?">
         </form>
         <div class="flex items-center mx-4 text-white">
+            @auth
+            <ul class="flex">
+                <li class="inline-flex mx-6">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <a href="route('logout')"
+                                onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                            ログアウト
+                        </a>
+                    </form>
+                </li>
+                <li class="inline-flex mx-6"><a href="/">マイページ</a></li>
+                <li class="inline-flex mx-6 px-4 text-black bg-white rounded-md"><a href="/sell">出品</a></li>
+            </ul>
+            @else
             <ul class="flex">
                 <li class="inline-flex mx-6"><a href="/login">ログイン</a></li>
                 <li class="inline-flex mx-6"><a href="/register">会員登録</a></li>
                 <li class="inline-flex mx-6 px-4 text-black bg-white rounded-md"><a href="/sell">出品</a></li>
             </ul>
+            @endauth
         </div>
     </header>
     <!-- コンテンツ -->

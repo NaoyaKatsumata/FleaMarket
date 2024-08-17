@@ -38,7 +38,8 @@ class TopPageController extends Controller
     }
 
     public function show(Request $request){
-        $item=Item::join('statuses','items.status_id','=','statuses.id')
+        $item=Item::select('items.id','items.name','items.brand','items.img_path','items.comment','items.price','items.category_id','statuses.status')
+        ->join('statuses','items.status_id','=','statuses.id')
         ->where('items.id','=',$request->id)
         ->first();
         $subCategoryId = $item->category_id;
@@ -46,7 +47,6 @@ class TopPageController extends Controller
         $subCategory = Sub_category::where('id','=',$subCategoryId)->first();
         $mainCategory = Main_category::where('id','=',$subCategory->main_category_id)->first();
         // ->where("sub_categories.main_category_id","=",$categoryId)
-        // dd($category);
         return view('item',['item'=>$item,'mainCategory'=>$mainCategory,'subCategory'=>$subCategory]);
     }
 }

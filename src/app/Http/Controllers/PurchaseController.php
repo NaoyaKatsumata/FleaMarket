@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class PurchaseController extends Controller
 {
-    public function show(Request $request){
-
+    public function editAddress(Request $request){
+        return view('address');
     }
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TopPageController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\PurchaseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,7 @@ Route::put('/', [TopPageController::class, 'getRecommendMyList']);
 Route::patch('/', [TopPageController::class, 'search']);
 Route::get('/item', [TopPageController::class, 'show']);
 Route::post('/purchase', [ItemController::class, 'toBuyPage']);
+Route::post('/purchase/address', [PurchaseController::class, 'editAddress']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
