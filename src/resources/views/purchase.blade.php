@@ -10,25 +10,29 @@
                     <p class="text-xl">¥{{$item->price}}</p>
                 </div>
             </div>
-            <from action="" method="" class="flex justify-between mt-[100px]">
+            <form action="/purchase/edit" method="post" class="flex justify-between mt-[100px]">
+                @csrf
                 <p class="text-xl">支払い方法</p>
-                <a href="/" class="text-blue-400">変更する</a>
-            </from>
+                <input type="hidden" name="itemId" value="{{$item->id}}">
+                <input type="hidden" name="userId" value="{{$user->id}}">
+                <input type="submit" class="text-blue-400" name="pay" value="変更する">
+            </form>
             @if(is_null($pay))
             <p class="mt-[20px]">未選択</p>
             @else
             <p class="mt-[20px]">{{$pay->method}}</p>
             @endif
-            <form action="/purchase/address" method="post" class="flex justify-between mt-[100px]">
+            <form action="/purchase/edit" method="post" class="flex justify-between mt-[100px]">
                 @csrf
                 <p class="text-xl">配送先</p>
-                <input type="hidden" name="test" value="test">
-                <input type="submit" class="text-blue-400" name="" value="変更する">
+                <input type="hidden" name="itemId" value="{{$item->id}}">
+                <input type="hidden" name="userId" value="{{$user->id}}">
+                <input type="submit" class="text-blue-400" name="address" value="変更する">
             </form>
             @if(is_null($user->shipping_address))
             <p class="mt-[20px]">未選択</p>
             @else
-            <p class="mt-[20px]">{{$user->shipping_address}}</p>
+            <p class="mt-[20px]">〒{{$user->shipping_address}}</p>
             @endif
         </div>
         <div class="w-[40%] ml-[10%]">

@@ -38,7 +38,7 @@ class TopPageController extends Controller
     }
 
     public function show(Request $request){
-        $item=Item::select('items.id','items.name','items.brand','items.img_path','items.comment','items.price','items.category_id','statuses.status')
+        $item = Item::select('items.id','items.name','items.brand','items.img_path','items.comment','items.price','items.category_id','statuses.status')
         ->join('statuses','items.status_id','=','statuses.id')
         ->where('items.id','=',$request->id)
         ->first();
