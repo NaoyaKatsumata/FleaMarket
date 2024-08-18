@@ -7,6 +7,7 @@ use App\Models\Item;
 use App\Models\My_list;
 use App\Models\Main_category;
 use App\Models\Sub_category;
+use App\Models\Comment;
 
 class TopPageController extends Controller
 {
@@ -43,10 +44,19 @@ class TopPageController extends Controller
         ->where('items.id','=',$request->id)
         ->first();
         $subCategoryId = $item->category_id;
-        // $category=Sub_category::all();
         $subCategory = Sub_category::where('id','=',$subCategoryId)->first();
         $mainCategory = Main_category::where('id','=',$subCategory->main_category_id)->first();
-        // ->where("sub_categories.main_category_id","=",$categoryId)
-        return view('item',['item'=>$item,'mainCategory'=>$mainCategory,'subCategory'=>$subCategory]);
+
+        $myLists = My_list::where('item_id','=',$request->id)
+        ->get();
+        $myListCount = $myLists->count();
+
+        $comments = Comment::select('comments.comment','users.name')
+        ->join('users','users.id','=','comments.user_id')
+        ->where('item_id','=',$request->id)
+        ->get();
+        $commentCount = $comments->count();
+
+        return view('item',['item'=>$item,'mainCategory'=>$mainCategory,'subCategory'=>$subCategory,'myLists'=>$myLists,'myListCount'=>$myListCount,'comments'=>$comments,'commentCount'=>$commentCount]);
     }
 }

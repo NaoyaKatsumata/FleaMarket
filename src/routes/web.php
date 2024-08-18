@@ -22,6 +22,7 @@ Route::get('/', [TopPageController::class, 'getItems']);
 Route::put('/', [TopPageController::class, 'getRecommendMyList']);
 Route::patch('/', [TopPageController::class, 'search']);
 Route::get('/item', [TopPageController::class, 'show']);
+Route::patch('/item', [ItemController::class, 'myList']);
 Route::post('/purchase', [ItemController::class, 'toBuyPage']);
 Route::post('/purchase/edit', [PurchaseController::class, 'toEditAddressOrPay']);
 Route::patch('/purchase', [AddressController::class, 'editAddressOrPay']);
