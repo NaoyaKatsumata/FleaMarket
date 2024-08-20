@@ -23,6 +23,7 @@ class User extends Authenticatable
         'password',
         'pay_method',
         'shipping_address',
+        'img_user',
     ];
 
     /**

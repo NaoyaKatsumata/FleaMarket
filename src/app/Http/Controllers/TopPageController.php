@@ -59,4 +59,8 @@ class TopPageController extends Controller
 
         return view('item',['item'=>$item,'mainCategory'=>$mainCategory,'subCategory'=>$subCategory,'myLists'=>$myLists,'myListCount'=>$myListCount,'comments'=>$comments,'commentCount'=>$commentCount]);
     }
+
+    public function myPage(Request $request){
+        $userId = $request->userId;
+    }
 }

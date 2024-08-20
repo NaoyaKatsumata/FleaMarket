@@ -38,7 +38,13 @@
                         </a>
                     </form>
                 </li>
-                <li class="inline-flex mx-6"><a href="/">マイページ</a></li>
+                <li class="inline-flex mx-6">
+                    <form action="/mypage" method="post">
+                        @csrf
+                        <input type="hidden" name="userId" value="{{Auth::user()->id}}">
+                        <input type="submit" name="submit" value="マイページ">
+                    </form>
+                </li>
                 <li class="inline-flex mx-6 px-4 text-black bg-white rounded-md"><a href="/sell">出品</a></li>
             </ul>
             @else

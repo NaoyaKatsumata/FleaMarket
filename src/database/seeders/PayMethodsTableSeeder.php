@@ -24,5 +24,10 @@ class PayMethodsTableSeeder extends Seeder
             'method' => 'クレジットカード'
         ];
         DB::table('pay_methods')->insert($param);
+
+        $param = [
+            'method' => '銀行'
+        ];
+        DB::table('pay_methods')->insert($param);
     }
 }

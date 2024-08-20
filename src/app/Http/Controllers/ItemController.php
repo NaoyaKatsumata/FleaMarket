@@ -15,6 +15,7 @@ class ItemController extends Controller
     public function toBuyPage(Request $request){
         $userId = $request->userId;
         $itemId = $request->itemId;
+
         $item = Item::where('id','=',$itemId)
         ->first();
         $user = User::where('id','=',$userId)

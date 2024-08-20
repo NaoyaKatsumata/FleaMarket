@@ -23,6 +23,7 @@ class ItemsTableSeeder extends Seeder
             'price' => '3000',
             'category_id' => '2',
             'status_id' => '1',
+            'shipping_user_id'=>'1',
         ];
         DB::table('items')->insert($param);
 
@@ -34,6 +35,7 @@ class ItemsTableSeeder extends Seeder
             'price' => '80000',
             'category_id' => '12',
             'status_id' => '3',
+            'shipping_user_id'=>'1',
         ];
         DB::table('items')->insert($param);
     }

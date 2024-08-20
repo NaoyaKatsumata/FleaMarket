@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->integer('pay_method')->nullable();
             $table->string('shipping_address')->nullable();
+            $table->string('img_user')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

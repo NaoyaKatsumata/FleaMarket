@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('category_id');
             $table->integer('status_id');
+            $table->integer('shipping_user_id');
             $table->timestamps();
         });
     }
