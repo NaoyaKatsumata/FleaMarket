@@ -21,23 +21,22 @@
                 <input type="submit" class="p-2 text-red-500 border-solid border-2 border-red-500 rounded-[10px]" name="" value="プロフィールを編集">
             </form>
         </div>
-        <form action="/" method="post" class="flex mt-8 pb-2 border-b border-black">
+        <form action="/mypage" method="post" class="flex mt-8 pb-2 border-b border-black">
             @csrf
-            @method('PUT')
-            @if(!(isset($topPageFlg)) or $topPageFlg == 0)
-            <input type="submit" name="recommend" class="ml-32 text-red-500 font-bold" value="出品した商品">
-            <input type="submit" name="myList" class="ml-16 text-gray-500 font-bold" value="購入した商品">
+            @if(!(isset($buyItemFlg)) or $buyItemFlg == 0)
+            <input type="submit" name="sellItem" class="ml-32 text-red-500 font-bold" value="出品した商品">
+            <input type="submit" name="buyItem" class="ml-16 text-gray-500 font-bold" value="購入した商品">
             <input type="hidden" name="userId" value="{{$user->id}}">
             @else
-            <input type="submit" name="recommend" class="ml-32 text-gray-500 font-bold" value="おすすめ">
-            <input type="submit" name="myList" class="ml-16 text-red-500 font-bold" value="マイリスト">
+            <input type="submit" name="sellItem" class="ml-32 text-gray-500 font-bold" value="出品した商品">
+            <input type="submit" name="buyItem" class="ml-16 text-red-500 font-bold" value="購入した商品">
             <input type="hidden" name="userId" value="{{$user->id}}">
             @endif
         </form>
         <div class="flex flex-wrap w-[80%] mx-auto items-center">
-        @foreach($shippingItems as $item)
+        @foreach($items as $item)
             <div class="w-[21%] h-[21%] mx-[2%] my-[5%]">
-                <a href="/item?id={{$item->id}}"><img src="{{ asset('storage/'.$item->img_path)}}" alt="No Image"></a>
+                <a href="/item?id={{$item->id}}&buyFlg=1"><img src="{{ asset('storage/'.$item->img_path)}}" alt="No Image"></a>
             </div>
         @endforeach
     </div>

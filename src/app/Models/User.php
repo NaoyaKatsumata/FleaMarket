@@ -22,7 +22,9 @@ class User extends Authenticatable
         'email',
         'password',
         'pay_method',
-        'shipping_address',
+        'post_code',
+        'address',
+        'building',
         'img_user',
     ];
 

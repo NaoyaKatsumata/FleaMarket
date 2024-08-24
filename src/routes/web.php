@@ -38,8 +38,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/purchase', [AddressController::class, 'editAddressOrPay']);
     Route::post('/mypage', [MypageController::class, 'show']);
     Route::patch('/mypage', [MypageController::class, 'editProfile']);
+    Route::put('/mypage', [MypageController::class, 'shippingStore']);
     Route::post('/userProfile', [MypageController::class, 'showProfile']);
     Route::patch('/userProfile', [MypageController::class, 'store']);
+    Route::post('/shipping', [MypageController::class, 'shipping']);
 });
 
 require __DIR__.'/auth.php';

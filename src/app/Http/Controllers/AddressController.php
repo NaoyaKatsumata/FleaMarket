@@ -21,13 +21,16 @@ class AddressController extends Controller
             $user = User::where('id','=',$userId)
             ->first();
             $user -> update([
-                'shipping_address' => $postCode.' '.$address.' '.$building
+                'post_code' => $postCode,
+                'address' => $address,
+                'building' => $building,
             ]);
         }else{
             $payMethodId = $request->methodId;
 
             $user = User::where('id','=',$userId)
             ->first();
+            dd($user);
             $user -> update([
                 'pay_method' => $payMethodId
             ]);

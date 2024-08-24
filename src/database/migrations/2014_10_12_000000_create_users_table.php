@@ -20,7 +20,9 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('pay_method')->nullable();
-            $table->string('shipping_address')->nullable();
+            $table->string('post_code')->nullable();
+            $table->string('address')->nullable();
+            $table->string('building')->nullable();
             $table->string('img_user')->nullable();
             $table->rememberToken();
             $table->timestamps();

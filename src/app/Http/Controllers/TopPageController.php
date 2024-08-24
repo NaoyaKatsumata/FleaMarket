@@ -12,7 +12,8 @@ use App\Models\Comment;
 class TopPageController extends Controller
 {
     public function getItems(){
-        $items = Item::all();
+        $items = Item::where('sell_flg','=','0')
+        ->get();
         // dd($items);
         return view('top',['items'=>$items]);
     }
@@ -24,7 +25,8 @@ class TopPageController extends Controller
             ->get();
             $topPageFlg=1;
         }else{
-            $items = Item::all();
+            $items = Item::where('sell_flg','=','0')
+            ->get();
             $topPageFlg=0;
         }
 
@@ -39,6 +41,7 @@ class TopPageController extends Controller
     }
 
     public function show(Request $request){
+        $buyFlg = $request->buyFlg;
         $item = Item::select('items.id','items.name','items.brand','items.img_path','items.comment','items.price','items.category_id','statuses.status')
         ->join('statuses','items.status_id','=','statuses.id')
         ->where('items.id','=',$request->id)
@@ -57,7 +60,7 @@ class TopPageController extends Controller
         ->get();
         $commentCount = $comments->count();
 
-        return view('item',['item'=>$item,'mainCategory'=>$mainCategory,'subCategory'=>$subCategory,'myLists'=>$myLists,'myListCount'=>$myListCount,'comments'=>$comments,'commentCount'=>$commentCount]);
+        return view('item',['item'=>$item,'mainCategory'=>$mainCategory,'subCategory'=>$subCategory,'myLists'=>$myLists,'myListCount'=>$myListCount,'comments'=>$comments,'commentCount'=>$commentCount,'buyFlg'=>$buyFlg]);
     }
 
     public function myPage(Request $request){

@@ -27,12 +27,12 @@
                 <p class="text-xl">配送先</p>
                 <input type="hidden" name="itemId" value="{{$item->id}}">
                 <input type="hidden" name="userId" value="{{$user->id}}">
-                <input type="submit" class="text-blue-400" name="address" value="変更する">
+                <input type="submit" class="text-blue-400" name="editAddress" value="変更する">
             </form>
-            @if(is_null($user->shipping_address))
+            @if(is_null($user->post_code) or is_null($user->address))
             <p class="mt-[20px]">未選択</p>
             @else
-            <p class="mt-[20px]">〒{{$user->shipping_address}}</p>
+            <p class="mt-[20px]">〒{{$user->post_code}} {{$user->address}} {{$user->building}}</p>
             @endif
         </div>
         <div class="w-[40%] ml-[10%]">
