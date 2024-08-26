@@ -6,6 +6,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\MypageController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +43,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/userProfile', [MypageController::class, 'showProfile']);
     Route::patch('/userProfile', [MypageController::class, 'store']);
     Route::post('/shipping', [MypageController::class, 'shipping']);
+    Route::post('/comment', [ItemController::class, 'comment']);
+    Route::put('/comment', [CommentController::class, 'store']);
 });
 
 require __DIR__.'/auth.php';

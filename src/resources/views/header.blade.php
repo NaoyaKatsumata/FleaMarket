@@ -17,8 +17,7 @@
     <!-- ヘッダー -->
     <header class="flex justify-between h-14 bg-black">
         <div class="flex h-full items-center">
-            <div class="pl-4 pr-2 text-4xl text-white font-mono font-bold">CT</div>
-            <div class="text-2xl text-white font-mono font-bold">COACHTECH</div>
+            <a href="/" class="ml-8"><img src="{{asset('img/logo.svg')}}" alt="ロゴ"></a>
         </div>
         <form action="" method="post" class="flex ml-8 items-center w-1/2">
             @csrf

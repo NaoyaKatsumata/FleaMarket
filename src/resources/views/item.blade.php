@@ -49,19 +49,17 @@
                         <div class="text-xs">{{$myListCount}}</div>
                     </form>
 
-                    @if(is_null($buyFlg))
                     <!-- ボタンをクリックしてモーダルを開く -->
-                    <div class="flex flex-col justify-center items-center">
+                    <!-- <div class="flex flex-col justify-center items-center">
                         <input type="image" id="openModal" src="{{asset('img/comment.svg')}}" class="w-[20px] ml-[20px]">
                         <div class="ml-[20px] text-xs">{{$commentCount}}</div>
-                    </div>
-                    @else
+                    </div> -->
                     <form action="/comment" method="post" class="flex flex-col justify-center items-center">
                         @csrf
                         <input type="image" src="{{asset('img/comment.svg')}}" class="w-[20px] ml-[20px]">
+                        <input type="hidden" name="itemId" value="{{$item->id}}">
                         <div class="ml-[20px] text-xs">{{$commentCount}}</div>
                     </form>
-                    @endif
 
                 </div>
 
