@@ -10,11 +10,13 @@ use App\Models\Main_category;
 use App\Models\Sub_category;
 use App\Models\Pay_method;
 use App\Models\Comment;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
     public function toBuyPage(Request $request){
-        $userId = $request->userId;
+        $user=User::findOrFail(Auth::id());
+        $userId=$user->id;
         $itemId = $request->itemId;
 
         $item = Item::where('id','=',$itemId)

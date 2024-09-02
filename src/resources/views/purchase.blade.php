@@ -56,7 +56,7 @@
                     </div>
                 </div>
             </div>
-            <input type="submit" class="w-full mt-[20px] py-[5px] bg-red-500 text-white text-center" name="" value="購入する">
+            <a href="/checkout?id={{$item->id}}"><input type="submit" class="w-full mt-[20px] py-[5px] bg-red-500 text-white text-center" name="" value="購入する"></a>
         </div>
     </div>
 @endsection
