@@ -1,7 +1,7 @@
 <x-guest-layout>
 
     <div class="flex justify-center font-bold text-xl">会員登録</div>
-    <form method="POST" action="{{ route('register') }}" class="mt-8">
+    <form method="POST" action="{{ route('user.register') }}" class="mt-8">
         @csrf
 
         <!-- Name -->
@@ -48,7 +48,7 @@
         </div>
 
         <div class="mt-4 text-center">
-            <a class="underline text-sm text-blue-500 hover:text-blue-700 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="/login">
+            <a class="underline text-sm text-blue-500 hover:text-blue-700 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{ route('user.login') }}">
                 ログインはこちら
             </a>
         </div>

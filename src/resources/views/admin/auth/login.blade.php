@@ -3,8 +3,8 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <div class="flex justify-center font-bold text-xl">ログイン</div>
-
-    <form method="POST" action="{{ route('login') }}" class="mt-8">
+    アドミン用
+    <form method="POST" action="{{ route('admin.login') }}" class="mt-8">
         @csrf
 
         <!-- Email Address -->
@@ -32,7 +32,7 @@
             </x-primary-button>
         </div>
         <div class="mt-4 text-center">
-            <a class="underline text-sm text-blue-500 hover:text-blue-700 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="/register">
+            <a class="underline text-sm text-blue-500 hover:text-blue-700 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('admin.register') }}">
                 会員登録はこちら
             </a>
         </div>

@@ -24,11 +24,19 @@ Route::get('/', [TopPageController::class, 'getItems']);
 Route::patch('/', [TopPageController::class, 'search']);
 Route::get('/item', [TopPageController::class, 'show']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/',function(){
+//     return view('user.welcome');
+// });
 
-Route::middleware('auth')->group(function () {
+Route::get('/adminpage', function () {
+    return view('adminpage');
+})->middleware(['auth:admin', 'verified']);
+
+Route::get('/dashboard', function () {
+    return view('user.dashboard');
+})->middleware(['auth:users', 'verified'])->name('dashboard');
+
+Route::middleware('auth:users')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

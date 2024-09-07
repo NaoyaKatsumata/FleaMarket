@@ -28,7 +28,7 @@
             @auth
             <ul class="flex">
                 <li class="inline-flex mx-6">
-                    <form method="POST" action="{{ route('logout') }}">
+                    <form method="POST" action="{{ route('user.logout') }}">
                         @csrf
                         <a href="route('logout')"
                                 onclick="event.preventDefault();
