@@ -7,6 +7,7 @@ use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\AdminPageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,9 +29,14 @@ Route::get('/item', [TopPageController::class, 'show']);
 //     return view('user.welcome');
 // });
 
-Route::get('/adminpage', function () {
-    return view('adminpage');
-})->middleware(['auth:admin', 'verified']);
+Route::get('/admin-page', [AdminPageController::class, 'getUsers'])->middleware(['auth:admin', 'verified']);
+Route::get('/admin-items', [AdminPageController::class, 'getItems'])->middleware(['auth:admin', 'verified']);
+Route::post('/admin-page', [AdminPageController::class, 'delete'])->middleware(['auth:admin', 'verified']);
+Route::get('/admin/item', [AdminPageController::class, 'comment'])->middleware(['auth:admin', 'verified']);
+Route::patch('/comment', [AdminPageController::class, 'commentDelete'])->middleware(['auth:admin', 'verified']);
+Route::put('/admin-page', [AdminPageController::class, 'sendMail']);
+Route::get('/test', [AdminPageController::class, 'sendMail']);
+Route::post('/admin-message', [AdminPageController::class, 'message'])->middleware(['auth:admin', 'verified']);
 
 Route::get('/dashboard', function () {
     return view('user.dashboard');

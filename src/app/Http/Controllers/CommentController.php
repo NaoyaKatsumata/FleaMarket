@@ -28,7 +28,7 @@ class CommentController extends Controller
         ->get();
         $myListCount = $myLists->count();
 
-        $comments = Comment::select('comments.comment','users.id','users.name','users.img_user')
+        $comments = Comment::select('comments.comment','comments.id as comment_id','users.id as user_id','users.name','users.img_user')
         ->join('users','users.id','=','comments.user_id')
         ->where('item_id','=',$itemId)
         ->get();

@@ -34,11 +34,10 @@
                     </form>
                 </li>
                 <li class="inline-flex mx-6">
-                    <form action="/mypage" method="post">
-                        @csrf
-                        <input type="hidden" name="userId" value="{{Auth::user()->id}}">
-                        <input type="submit" name="submit" value="マイページ">
-                    </form>
+                    <a href='/admin-page'>ユーザ</a>
+                </li>
+                <li class="inline-flex mx-6">
+                    <a href='/admin-items'>商品一覧</a>
                 </li>
             </ul>
             @endauth

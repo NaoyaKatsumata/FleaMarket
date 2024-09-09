@@ -61,11 +61,11 @@
                     </div>
                     <div class="px-6 pb-4">
                         @foreach($comments as $comment)
-                        @if($comment->id == $userId)
-                            <div class="flex">
-                        @else
-                            <div class="flex flex-row-reverse">
-                        @endif
+                            @if($comment->user_id == $userId)
+                                <div class="flex">
+                            @else
+                                <div class="flex flex-row-reverse">
+                            @endif
                                 <div class="mx-2 rounded-full overflow-hidden w-[30px] h-[30px]">
                                     <img src="{{ asset('storage/'.$comment->img_user)}}" class="w-full h-full object-cover bg-contain bg-center bg-cover bg-gray-300">
                                 </div>
@@ -74,6 +74,15 @@
                                 @else
                                     <p class="font-bold mb-2 text-xl">No name</p>
                                 @endif
+                                @auth('admin')
+                                    <form action="/comment" method="post" class="flex mr-auto ml-[0px]">
+                                        @csrf
+                                        @method('patch')
+                                        <input type="hidden" name="commentId" value="{{$comment->comment_id}}">
+                                        <input type="hidden" name="itemId" value="{{$item->id}}">
+                                        <input type="submit" value="削除" class="">
+                                    </form>
+                                @endauth
                             </div>
                             <div class="flex flex-col mb-4 py-4 border-solid border-2 border-gray-300 rounded-[10px]">
                                 <p class="ml-2 text-sm">　{{$comment->comment}}</p>
