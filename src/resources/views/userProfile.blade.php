@@ -7,7 +7,7 @@
         <form action="/userProfile" method="post" id="uploadIMG" class="flex items-center" enctype="multipart/form-data">
             @csrf
             @method('patch')
-            <div class="mr-10 rounded-full overflow-hidden w-[120px] h-[120px]">
+            <div class="mr-10 rounded-full overflow-hidden w-[80px] h-[80px] md:w-[120px] md:h-[120px]">
                 <img src="{{ asset('storage/'.$user->img_user)}}" name="image" class="w-full h-full object-cover bg-contain bg-center bg-cover bg-gray-300">
             </div>
             <label class="cursor-pointer py-[5px] px-[10px] bg-red-500 text-white text-center rounded">

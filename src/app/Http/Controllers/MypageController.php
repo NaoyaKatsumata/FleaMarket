@@ -123,7 +123,7 @@ class MypageController extends Controller
         $statusId = $request->status;
         $itemName = $request->itemName;
         $description = $request->description;
-        $price = $request->price;
+        $price = (int)$request->price;
 
         $fileName = $file->getClientOriginalExtension();
         $imgName=Str::random(32).'.'.$fileName;

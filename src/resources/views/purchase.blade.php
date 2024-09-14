@@ -1,11 +1,11 @@
 @extends('header')
 
 @section('content')
-    <div class="flex w-[80%] mx-auto mt-[5%]">
-        <div class="w-[50%]">
-            <div class="flex">
-                <img src="{{ asset('storage/'.$item->img_path)}}" class="w-[30%]">
-                <div class="ml-[100px]">
+    <div class="flex flex-col md:flex-row w-[80%] mx-auto mt-[5%]">
+        <div class="w-full md:w-[50%]">
+            <div class="flex flex-col items-center md:flex-row">
+                <img src="{{ asset('storage/'.$item->img_path)}}" class="w-1/2 md:w-[30%]">
+                <div class="md:ml-[100px]">
                     <h1 class="mb-[10px] text-2xl font-bold">{{$item->name}}</h1>
                     <p class="text-xl">¥{{$item->price}}</p>
                 </div>
@@ -35,7 +35,7 @@
             <p class="mt-[20px]">〒{{$user->post_code}} {{$user->address}} {{$user->building}}</p>
             @endif
         </div>
-        <div class="w-[40%] ml-[10%]">
+        <div class="my-16 md:w-[40%] md:ml-[10%] md:mt-0">
             <div class="w-full border-solid border-2 border-gray-300">
                 <div class="pt-[10px] px-[50px]">
                     <div class="flex justify-between mb-[50px]">

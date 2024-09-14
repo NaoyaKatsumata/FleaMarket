@@ -23,7 +23,7 @@
         <div class="flex items-center mx-4 text-white">
             @auth
             <ul class="flex">
-                <li class="inline-flex mx-6">
+                <li class="inline-flex mx-2 md:mx-6">
                     <form method="POST" action="{{ route('admin.logout') }}">
                         @csrf
                         <a href="route('admin.logout')"
@@ -33,10 +33,10 @@
                         </a>
                     </form>
                 </li>
-                <li class="inline-flex mx-6">
+                <li class="inline-flex mx-2 md:mx-6">
                     <a href='/admin-page'>ユーザ</a>
                 </li>
-                <li class="inline-flex mx-6">
+                <li class="inline-flex mx-2 md:mx-6">
                     <a href='/admin-items'>商品一覧</a>
                 </li>
             </ul>

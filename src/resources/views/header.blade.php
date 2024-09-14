@@ -16,19 +16,19 @@
     </head>
     <!-- ヘッダー -->
     <header class="flex justify-between h-14 bg-black">
-        <div class="flex h-full items-center">
-            <a href="/" class="ml-8"><img src="{{asset('img/logo.svg')}}" alt="ロゴ"></a>
+        <div class="flex items-center w-[25%]">
+            <a href="/" class="w-full md:ml-8"><img src="{{asset('img/logo.svg')}}" alt="ロゴ"></a>
         </div>
-        <form action="" method="post" class="flex ml-8 items-center w-1/2">
+        <form action="" method="post" class="flex ml-2 md:ml-4 items-center w-[40%]">
             @csrf
             @method('patch')
             <input type="search" name="search" class="w-full" placeholder="何をお探しですか?">
         </form>
-        <div class="flex items-center mx-4 text-white">
+        <div class="flex items-center justify-end text-white md:w-[35%] md:ml-8">
             @auth
             <ul class="flex">
-                <li class="inline-flex mx-6">
-                    <form method="POST" action="{{ route('user.logout') }}">
+                <li class="flex items-center">
+                    <form method="POST" action="{{ route('user.logout') }}" class="mx-2 text-xs inline-flex md:text-base">
                         @csrf
                         <a href="route('logout')"
                                 onclick="event.preventDefault();
@@ -37,26 +37,26 @@
                         </a>
                     </form>
                 </li>
-                <li class="inline-flex mx-6">
-                    <form action="/mypage" method="post">
+                <li class="inline-flex">
+                    <form action="/mypage" method="post" class="mx-2 text-xs inline-flex md:text-base">
                         @csrf
                         <input type="hidden" name="userId" value="{{Auth::user()->id}}">
                         <input type="submit" name="submit" value="マイページ">
                     </form>
                 </li>
-                <li class="inline-flex mx-6">
-                    <form action="/shipping" method="post">
+                <li class="inline-flex">
+                    <form action="/shipping" method="post" class="mx-2 text-xs inline-flex md:text-base">
                         @csrf
                         <input type="hidden" name="userId" value="{{Auth::user()->id}}">
-                        <input type="submit" name="submit" value="出品">
+                        <input type="submit" name="submit" class="px-4 py-2 text-xs md:text-base text-black bg-white rounded-md" value="出品">
                     </form>
                 </li>
             </ul>
             @else
             <ul class="flex">
-                <li class="inline-flex mx-6"><a href="/login">ログイン</a></li>
-                <li class="inline-flex mx-6"><a href="/register">会員登録</a></li>
-                <li class="inline-flex mx-6 px-4 text-black bg-white rounded-md"><a href="/sell">出品</a></li>
+                <li class="mx-2 my-auto text-xs inline-flex md:text-base"><a href="/login">ログイン</a></li>
+                <li class="mx-2 my-auto text-xs inline-flex md:text-base"><a href="/register">会員登録</a></li>
+                <li class="mx-2 text-xs inline-flex md:text-base px-4 py-2 text-black bg-white rounded-md"><a href="/sell">出品</a></li>
             </ul>
             @endauth
         </div>

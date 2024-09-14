@@ -14,13 +14,13 @@
         @endphp
     @endauth
 
-    <div class="flex w-[80%] mx-auto mt-[5%]">
-        <div class="w-1/2">
+    <div class="flex flex-col md:flex-row w-[80%] mx-auto mt-[5%]">
+        <div class="w-full md:w-1/2">
             <div class="w-[70%] mx-auto">
                 <img src="{{ asset('storage/'.$item->img_path)}}" alt="No Image">
             </div>
         </div>
-        <div class="w-1/2">
+        <div class="w-full md:w-1/2 pb-16">
             <div class="w-[80%] mx-auto">
                 <h1 class="mt-[10px] text-2xl font-bold">{{$item->name}}</h1>
                 <p class="mt-[10px] text-xs">{{$item->brand}}</p>

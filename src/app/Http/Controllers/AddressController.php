@@ -30,7 +30,6 @@ class AddressController extends Controller
 
             $user = User::where('id','=',$userId)
             ->first();
-            dd($user);
             $user -> update([
                 'pay_method' => $payMethodId
             ]);

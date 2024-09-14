@@ -44,7 +44,8 @@ class PurchaseController extends Controller
             return view('/');
         }
         // 在庫を減らす
-        $item->update(['sell_flg'=>'1']);
+        $item->update(['sell_flg'=>'1',
+                       'buy_user_id'=>$user->id]);
 
         // envからシークレットキーを取得
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
