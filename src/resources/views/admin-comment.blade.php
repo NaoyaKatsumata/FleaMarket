@@ -27,30 +27,14 @@
                 <p class="mt-[10px] text-2xl">¥{{$item->price}}</p>
                 <div class="flex mt-[10px]">
 
-                    <!-- お気に入り登録＆お気に入り数表示 -->
-                    <form action="/item?id={{$item->id}}" method="post" class="flex flex-col items-center">
-                        @csrf
-                        @method('patch')
-                        <input type="hidden" name="itemId" value="{{$item->id}}">
-                        <input type="hidden" name="userId" value="{{$userId}}">
-                        @php
-                            foreach($myLists as $myList){
-                                if($myList->user_id == $userId){
-                                    $myListFlg=true;
-                                    break;
-                                }
-                            }
-                        @endphp
-                        @if($myListFlg)
-                            <input type="image" src="{{asset('img/star_yellow.svg')}}" class="w-[20px]">
-                        @else
-                            <input type="image" src="{{asset('img/star_gray.svg')}}" class="w-[20px]">
-                        @endif
+                    <!-- お気に入り数表示 -->
+                    <div class="flex flex-col items-center">
+                    <img src="{{asset('img/star_gray.svg')}}" class="w-[20px]">
                         <div class="text-xs">{{$myListCount}}</div>
-                    </form>
+                    </div>
 
                     <div class="flex flex-col justify-center items-center">
-                        <input type="image" id="openModal" src="{{asset('img/comment.svg')}}" class="w-[20px] ml-[20px]">
+                        <img src="{{asset('img/comment.svg')}}" class="w-[20px] ml-[20px]">
                         <div class="ml-[20px] text-xs">{{$commentCount}}</div>
                     </div>
                 </div>

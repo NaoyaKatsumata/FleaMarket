@@ -56,7 +56,13 @@
             <ul class="flex">
                 <li class="mx-2 my-auto text-xs inline-flex md:text-base"><a href="/login">ログイン</a></li>
                 <li class="mx-2 my-auto text-xs inline-flex md:text-base"><a href="/register">会員登録</a></li>
-                <li class="mx-2 text-xs inline-flex md:text-base px-4 py-2 text-black bg-white rounded-md"><a href="/sell">出品</a></li>
+                <li class="inline-flex">
+                <form action="/shipping" method="post" class="mx-2 text-xs inline-flex md:text-base">
+                        @csrf
+                        <input type="submit" name="submit" class="px-4 py-2 text-xs md:text-base text-black bg-white rounded-md" value="出品">
+                    </form>
+                </li>
+                </li>
             </ul>
             @endauth
         </div>

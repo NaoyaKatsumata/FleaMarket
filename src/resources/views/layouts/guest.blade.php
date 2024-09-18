@@ -15,10 +15,9 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <!-- ヘッダー -->
-    <header class="h-14 text-white bg-black">
-        <div class="flex h-full items-center">
-            <div class="pl-4 pr-2 text-4xl font-mono font-bold">CT</div>
-            <div class="text-2xl font-mono font-bold">COACHTECH</div>
+    <header class="flex justify-between h-14 bg-black">
+        <div class="flex items-center w-[25%]">
+            <a href="/" class="w-full md:ml-8"><img src="{{asset('img/logo.svg')}}" alt="ロゴ"></a>
         </div>
     </header>
     <!-- コンテンツ -->

@@ -3,7 +3,6 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <div class="flex justify-center font-bold text-xl">ログイン</div>
-    ユーザ用
     <form method="POST" action="{{ route('user.login') }}" class="mt-8">
         @csrf
 

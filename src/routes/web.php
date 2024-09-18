@@ -35,12 +35,7 @@ Route::post('/admin-page', [AdminPageController::class, 'delete'])->middleware([
 Route::get('/admin/item', [AdminPageController::class, 'comment'])->middleware(['auth:admin', 'verified']);
 Route::patch('/comment', [AdminPageController::class, 'commentDelete'])->middleware(['auth:admin', 'verified']);
 Route::put('/admin-page', [AdminPageController::class, 'sendMail']);
-Route::get('/test', [AdminPageController::class, 'sendMail']);
 Route::post('/admin-message', [AdminPageController::class, 'message'])->middleware(['auth:admin', 'verified']);
-
-Route::get('/dashboard', function () {
-    return view('user.dashboard');
-})->middleware(['auth:users', 'verified'])->name('dashboard');
 
 Route::middleware('auth:users')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -60,6 +55,8 @@ Route::middleware('auth:users')->group(function () {
     Route::post('/comment', [ItemController::class, 'comment']);
     Route::put('/comment', [CommentController::class, 'store']);
     Route::get('/checkout', [PurchaseController::class, 'checkout']);
+    Route::get('/thanks', [PurchaseController::class, 'thanks']);
+    Route::get('/failed', [PurchaseController::class, 'failed']);
 });
 
 require __DIR__.'/auth.php';

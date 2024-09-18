@@ -53,7 +53,7 @@
 
             <h2 class="mt-16 text-xl font-bold text-gray-500 border-b border-black">販売価格</h2>
             <p class="font-bold mt-8">販売価格<span class="text-red-500">※</span></p>
-            <input type="text" id="price" name="price" class="w-full rounded" placeholder="1000">
+            <input type="number" id="price" name="price" class="w-full rounded" placeholder="1000">
             <div class="mt-4 text-red-500" id="validationMessagePrice"></div>
             <button type="button" class="w-full my-16 py-[10px] bg-red-500 text-white text-center rounded" onclick="validateForm()">出品する</button>
         </form>

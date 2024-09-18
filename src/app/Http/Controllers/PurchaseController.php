@@ -37,11 +37,18 @@ class PurchaseController extends Controller
     public function checkout(Request $request){
         $user=User::findOrFail(Auth::id());
         $itemId = $request->id;
+        $payMethod = $user->pay_method;
         $item = Item::where('id','=',$itemId)
         ->first();
+        $items = Item::where('sell_flg','=',0)
+        ->get();
 
         if($item->sell_flg == 1){
-            return view('/');
+            return redirect('/thanks');
+        }
+
+        if($payMethod <> 2){
+            return redirect('/thanks');
         }
         // 在庫を減らす
         $item->update(['sell_flg'=>'1',
@@ -63,12 +70,20 @@ class PurchaseController extends Controller
             'quantity' => 1,                         //数
             ]],
             'mode' => 'payment',                     //支払い回数
-            'success_url' => 'http://localhost/',    //成功後繊維ページ
-            'cancel_url' => 'http://localhost/',     //キャンセル後遷移ページ
+            'success_url' => 'http://localhost/thanks',    //成功後繊維ページ
+            'cancel_url' => 'http://localhost/failed',     //キャンセル後遷移ページ
         ]);
         // 公開鍵を取得
         $publicKey = env('STRIPE_PUBLIC_KEY');
         // 公開鍵とセッション情報をviewに渡す必要がある
         return view('checkout',compact('session','publicKey'));
+    }
+
+    public function thanks(){
+        return view('/thanks');
+    }
+
+    public function failed(){
+        return view('/failed');
     }
 }
