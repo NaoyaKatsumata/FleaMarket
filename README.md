@@ -80,5 +80,40 @@
         　DB_DATABASE=laravel_db<br>
         　DB_USERNAME=laravel_user<br>
         　DB_PASSWORD=laravel_pass<br>
+        <br>
+        　MAIL_MAILER=smtp<br>
+        　MAIL_HOST=smtp.gmail.com<br>
+        　MAIL_PORT=587<br>
+        　MAIL_USERNAME=naoyakatsumata0708@gmail.com<br>
+        　MAIL_PASSWORD="sjkm dwkn ihjx fxvy"<br>
+        　MAIL_ENCRYPTION=tls<br>
+        　MAIL_FROM_ADDRESS=naoyakatsumata0708@gmail.com<br>
+        　MAIL_FROM_NAME="${APP_NAME}"<br>
+        <br>
+        　STRIPE_SECRET_KEY=sk_test_51Ps2R304yADrhrdliSOQHA8tHEQrJRi6ejYIDgEJM49iejC8SmPDLnNOSE30RWqnskznliIrnexhoBk7c69G1FCg00PqIK8exV<br>
+        　STRIPE_PUBLIC_KEY=pk_test_51Ps2R304yADrhrdltk3Z2vMblFDpOPnzktddDa2fvNQ7pFd05FGnIMGDMjQ1gvjO7d5cM7ZOwmQ4EX8dZcaEQtg700b4nDnti8
         </li>
+        <li>keyの作成<br>
+        　php artisan key:generate
+        </li>
+        <li>npmのインストール<br>
+        コンテナから出る<br>
+        　exit<br>
+        srcに移動<br>
+        　cd src<br>
+        npmをインストール<br>
+        　npm install
+        </li>
+        <li>npmを起動
+        　npm run dev</li>
+        <li>ダミーデータの投入<br>
+        　docker-compose exec php bash<br>
+        　php artisan migrate<br>
+        　php artisan db:seed</li>
+        <li>ストレージとリンク<br>
+        　php artisan storage:link</li>
+        <li>ユーザの作成<br>
+        　ユーザの作成・ログインはナビゲーションから<br>
+        　管理者の作成->http://localhost/admin/register<br>
+        　　　ログイン->http://localhost/admin/login</li>
 </ul>
