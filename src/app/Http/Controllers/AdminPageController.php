@@ -47,7 +47,6 @@ class AdminPageController extends Controller
         ->where('item_id','=',$itemId)
         ->get();
         $commentCount = $comments->count();
-        // dd($request,$comments,$commentCount);
 
         return view('admin-comment',['item'=>$item,'myLists'=>$myLists,'myListCount'=>$myListCount,'comments'=>$comments,'commentCount'=>$commentCount]);
     }
@@ -70,7 +69,6 @@ class AdminPageController extends Controller
         ->where('item_id','=',$itemId)
         ->get();
         $commentCount = $comments->count();
-        // dd($request,$comments,$commentCount);
 
         return view('admin-comment',['item'=>$item,'myLists'=>$myLists,'myListCount'=>$myListCount,'comments'=>$comments,'commentCount'=>$commentCount]);
     }

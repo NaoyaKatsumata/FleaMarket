@@ -25,10 +25,6 @@ Route::get('/', [TopPageController::class, 'getItems']);
 Route::patch('/', [TopPageController::class, 'search']);
 Route::get('/item', [TopPageController::class, 'show']);
 
-// Route::get('/',function(){
-//     return view('user.welcome');
-// });
-
 Route::get('/admin-page', [AdminPageController::class, 'getUsers'])->middleware(['auth:admin', 'verified']);
 Route::get('/admin-items', [AdminPageController::class, 'getItems'])->middleware(['auth:admin', 'verified']);
 Route::post('/admin-page', [AdminPageController::class, 'delete'])->middleware(['auth:admin', 'verified']);

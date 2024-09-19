@@ -70,14 +70,11 @@ class MypageController extends Controller
         $file=$request->file('path');
         $userId=$request->userId;
         $fileName = $file->getClientOriginalExtension();
-        // dd($fileName);
-        // $fileName=$file->getClientOriginalName();
         $imgName=Str::random(32).'.'.$fileName;
 
         if(is_null($file)){
             $fileName='';
         }else{
-            // $fileName=$file->getClientOriginalName();
             $file->storeAs('public/img',$imgName);
         }
 
@@ -131,7 +128,6 @@ class MypageController extends Controller
         if(is_null($file)){
             $fileName='';
         }else{
-            // $fileName=$file->getClientOriginalName();
             $file->storeAs('public/img',$imgName);
         }
 

@@ -31,7 +31,6 @@
             <p>建物名</p>
             <input type="text" id="building" class="w-full mb-8 border-solid border-2 border-gray-300 rounded-[5px]" name="building" value="{{$user->building}}"></input>
             <input type="hidden" name="userId" value="{{$userId}}">
-            <!-- <button type="submit" onclick="validateAddress()" class="w-full mt-[20px] py-[10px] bg-red-500 text-white text-center rounded" name="" value="登録する"> -->
             <button type="button" class="w-full mt-[20px] py-[10px] bg-red-500 text-white text-center rounded" onclick="validateAddress()">Submit</button>
         </form>
 

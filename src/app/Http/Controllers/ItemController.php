@@ -63,7 +63,6 @@ class ItemController extends Controller
         ->where('item_id','=',$itemId)
         ->get();
         $commentCount = $comments->count();
-        // dd($request,$comments,$commentCount);
 
         return view('comment',['item'=>$item,'myLists'=>$myLists,'myListCount'=>$myListCount,'comments'=>$comments,'commentCount'=>$commentCount]);
     }

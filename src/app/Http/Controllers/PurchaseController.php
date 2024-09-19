@@ -75,7 +75,6 @@ class PurchaseController extends Controller
         ]);
         // 公開鍵を取得
         $publicKey = env('STRIPE_PUBLIC_KEY');
-        // 公開鍵とセッション情報をviewに渡す必要がある
         return view('checkout',compact('session','publicKey'));
     }
 
