@@ -58,9 +58,27 @@
 <img src="img/ER.png">
 <h1>環境構築</h1>
 <ul>
-    <li>githubからファイルをローカルへ<br> URL->https://github.com/NaoyaKatsumata/fleaMarket</li>
+    <li>githubからファイルをローカルへ<br>
+        URL->https://github.com/NaoyaKatsumata/fleaMarket
+    </li>
     <li>クローンしたフォルダに移動</li>
-    <li>dockerが起動しているのを確認し、ビルド<br> docker-compose up -d --build</li>
-    <li>composerをインストール<br> docker-compose exec php bash<br> composer install</li>
-    <li>.envファイルをコピーし編集<br> cp .env.example .env<br> nano .env<br> (テキストエディタがない場合はインストール)<br> apt install nano<br></li>
+    <li>dockerが起動しているのを確認し、ビルド<br>
+        docker-compose up -d --build
+    </li>
+    <li>composerをインストール<br>
+        docker-compose exec php bash<br>composer install
+    </li>
+    <li>.envファイルをコピーし編集<br>
+        cp .env.example .env<br>
+        nano .env<br>
+        (テキストエディタがない場合はインストール)<br>
+        apt install nano<br>
+        .env編集箇所<br>
+        DB_CONNECTION=mysql<br>
+        　DB_HOST=mysql<br>
+        　DB_PORT=3306<br>
+        　DB_DATABASE=laravel_db<br>
+        　DB_USERNAME=laravel_user<br>
+        　DB_PASSWORD=laravel_pass<br>
+        </li>
 </ul>
